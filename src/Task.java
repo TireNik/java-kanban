@@ -1,24 +1,26 @@
 public class Task {
+    private Integer id;
     private  String name;
     private  String description;
     private Progress status;
 
-    public Task(String name, String description, Progress status) {
+    public Task(Integer id, String name, String description, Progress status) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.status = status;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getDescription() {

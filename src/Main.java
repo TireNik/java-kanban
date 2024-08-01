@@ -1,40 +1,66 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Поехали!");
-
-        TaskManager taskManager = getManager();
-
-        taskManager.printAllTasks();
-
-        taskManager.updateTask(1, "Задача 1", "Описание 1 Изменил",
-                Progress.IN_PROGRESS);
-        taskManager.updateSubTask(3, 1, "Подзадача 1",
-                "Изменил подзадачи 1", Progress.IN_PROGRESS);
-        taskManager.updateSubTask(3, 2, "Подзадача 2",
-                "Изменил подзадачи 2", Progress.DONE);
-        taskManager.updateSubTask(4, 1, "Подзадача 2.1",
-                "Изменил подзадачи epic 1", Progress.DONE);
-
-        taskManager.printAllTasks();
-        taskManager.deleteTaskForId(1);
-        taskManager.deleteSubTaskForId(3, 1);
-        taskManager.deleteTaskForId(4);
-        taskManager.printAllTasks();
-
-    }
-
-    private static TaskManager getManager() {
         TaskManager taskManager = new TaskManager();
 
-        taskManager.addTask("Задача 1", "Описание 1", "TASK");
-        taskManager.addTask("Задача 2", "Описание Задачи 2", "TASK");
-        taskManager.addTask("Задача epic 3", "Описание эпик 1", "EPIC");
-        taskManager.addTask("Задача epic 4", "Описание эпик 2", "EPIC");
-        taskManager.addSubTask(3, "Подзадача 1", "Описание подзадачи 1");
-        taskManager.addSubTask(3, "Подзадача 2", "Описание подзадачи 2");
-        taskManager.addSubTask(4, "Подзадача 2.1",
-                "Описание подзадачи 1 epic 2");
-        return taskManager;
+
+        Task task1 = new Task(null, "1 Задача", "1 описание", Progress.NEW);
+        Task task2 = new Task(null, "2 Задача", "2 описание", Progress.NEW);
+
+        taskManager.addTask(task1);
+        taskManager.addTask(task2);
+
+        Epic epic1 = new Epic(null, "1 Эпик", "1 эпик описание", Progress.NEW);
+        Epic epic2 = new Epic(null, "2 Эпик", "2 эпик описание", Progress.NEW);
+
+        taskManager.addEpic(epic1);
+        taskManager.addEpic(epic2);
+
+        SubTask subTask1_1 = new SubTask(null, "1_1 подзадача", "1_1 описание подзадачи", Progress.DONE, 3);
+        SubTask subTask1_2 = new SubTask(null, "1_2 подзадача", "1_2 описание подзадачи", Progress.DONE, 3);
+
+        taskManager.addSubtask(subTask1_1);
+        taskManager.addSubtask(subTask1_2);
+
+        SubTask subTask2_1 = new SubTask(null, "2_1 подзадача", "2_1 описание подхадачи", Progress.IN_PROGRESS, 4);
+
+        taskManager.addSubtask(subTask2_1);
+
+        taskManager.getAllTasks();
+        taskManager.getAllEpics();
+        taskManager.getAllSubTasks();
+
+        Task updateTask1 = new Task(null, "1 Задача", "1 описание", Progress.IN_PROGRESS);
+        Task updateTask2 = new Task(null, "2 Задача", "2 описание", Progress.IN_PROGRESS);
+
+        taskManager.updateTask(updateTask1);
+        taskManager.updateTask(updateTask2);
+
+        Epic updateEpic1 = new Epic(null, "1 Эпик", "1 Изменил описание", Progress.NEW);
+        Epic updateEpic2 = new Epic(null, "2 Эпик", "2 Изменил описание", Progress.NEW);
+
+        taskManager.updateEpic(updateEpic1);
+        taskManager.updateEpic(updateEpic2);
+
+        SubTask updateSubTask1_1 = new SubTask(null, "1_1 подзадача", "1_1 описание подзадачи", Progress.NEW, 3);
+        SubTask updateSubTask1_2 = new SubTask(null, "1_2 подзадача", "1_2 описание подзадачи", Progress.NEW, 3);
+
+        taskManager.updateSubtask(updateSubTask1_1);
+        taskManager.updateSubtask(updateSubTask1_2);
+
+        SubTask updateSubTask2_1 = new SubTask(null, "2_1 подзадача", "2_1 описание подхадачи", Progress.DONE, 4);
+
+        taskManager.updateSubtask(updateSubTask2_1);
+
+        taskManager.getAllTasks();
+        taskManager.getAllEpics();
+        taskManager.getAllSubTasks();
+
+        taskManager.deleteTaskById(1);
+        taskManager.deleteEpicById(4);
+
+        taskManager.getAllTasks();
+        taskManager.getAllEpics();
+        taskManager.getAllSubTasks();
     }
 }
