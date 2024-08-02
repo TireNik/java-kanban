@@ -15,9 +15,10 @@ public class SubTask extends Task{
     public String toString() {
 
         return "subTask {" +
-                "имя: '" + getName() + '\'' +
+                "имя: '" + getName() + " Id " + getId() + '\'' +
                 ", описание: '" + getDescription() + '\'' +
                 ", статус: " + getStatus() +
+                ", epicId=" + epicId +
                 '}';
     }
 }
