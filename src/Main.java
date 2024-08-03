@@ -64,8 +64,9 @@ public class Main {
         System.out.println(taskManager.deleteTaskById(1));
         System.out.println(taskManager.deleteEpicById(4));
         System.out.println(taskManager.deleteSubtaskForId(5));
+        System.out.println(taskManager.deleteSubtaskForId(7));
 
-        SubTask updateSubTask3 = new SubTask(5, "333", "1_1 описание подзадачи", Progress.NEW, 10);
+        SubTask updateSubTask3 = new SubTask(5, "333", "1_1 описание подзадачи", Progress.NEW, 4);
         taskManager.addSubtask(updateSubTask3);
 
 

@@ -50,7 +50,6 @@ public class TaskManager {
             Epic epic1 = epicMap.get(id);
             epic1.setName(epic.getName());
             epic1.setDescription(epic.getDescription());
-            updateEpicStatus(epic);
             return epic;
         }
         return null;
@@ -181,5 +180,9 @@ public class TaskManager {
 
     public void deleteAllSubTasks() {
         subTaskMap.clear();
+        for (Epic epic : epicMap.values()) {
+            epic.clearSubtaskId();
+            updateEpicStatus(epic);
+        }
     }
 }
