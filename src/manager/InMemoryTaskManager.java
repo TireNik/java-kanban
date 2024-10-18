@@ -381,12 +381,6 @@ public class InMemoryTaskManager implements TaskManager {
         return new ArrayList<>(prioritizedTasks);
     }
 
-    private void updatePrioritizedTask(Task task) {
-        prioritizedTasks.removeIf(task1 -> task1.getId() == task.getId());
-
-        prioritizedTasks.add(task);
-    }
-
     private boolean isOverlapping(Task task1, Task task2) {
         LocalDateTime start1 = task1.getStartTime();
         LocalDateTime end1 = task1.getEndTime();

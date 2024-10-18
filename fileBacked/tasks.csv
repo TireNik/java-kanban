@@ -1,5 +1,0 @@
-id,type,name,status,description,epic,duration,startTime,endTime
-1,EPIC,ЭПИК 1,NEW,ОПИСАНИЕ ЭПИК,,PT2H10M,2024-10-22T18:18,2025-10-22T20:08
-4,EPIC,ЭПИК 1,NEW,ОПИСАНИЕ ЭПИК,,null,null,null
-2,SUBTASK,ПОДЗАДАЧА 1,NEW,Subtask ОПИСАНИЕ 1,1,PT20M,2024-10-22T18:18,2024-10-22T18:38
-3,SUBTASK,ПОДЗАДАЧА 1,NEW,Subtask ОПИСАНИЕ 1,1,PT1H50M,2025-10-22T18:18,2025-10-22T20:08

@@ -84,7 +84,6 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         for (SubTask subTask : getSubTaskMap().values()) {
             Epic epic = getEpicMap().get(subTask.getEpicId());
             if (epic != null) {
-                epic.addSubtaskId(subTask.getId());
                 updateEpicStatus(epic);
                 updateEpicTime(epic);
             }
@@ -160,6 +159,13 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         SubTask newSubTask = super.addSubtask(subTask);
         save();
         return newSubTask;
+    }
+
+    @Override
+    public Epic addEpic(Epic epic) {
+        Epic newEpic = super.addEpic(epic);
+        save();
+        return newEpic;
     }
 
     @Override
